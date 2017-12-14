@@ -1,0 +1,2 @@
+# TriangleSolver
+Javascript triangle solver
