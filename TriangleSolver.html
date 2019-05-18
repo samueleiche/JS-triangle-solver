@@ -1,437 +1,524 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Triangle Calculator</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <style type="text/css">
-    .container { margin-top: 5%; }
-    .form-group { padding: 12px 0; }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Triangle Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type="text/css">
+    .container {
+        margin-top: 5%;
+    }
+
+    .form-group {
+        padding: 12px 0;
+    }
+
     td,
-    th { font-size: 14px; }
-    label { margin-top: 5px; }
-    table { border-collapse: unset; }
+    th {
+        font-size: 14px;
+    }
+
+    label {
+        margin-top: 5px;
+    }
+
+    table {
+        border-collapse: unset;
+    }
+
     .table-heading,
-    .control-label { font-weight: 400; color: #ababab;}
-    td { font-weight: 700; }
-    .message { padding: 7px 15px; color: #ff0000; }
-  </style>
+    .control-label {
+        font-weight: 400;
+        color: #ababab;
+    }
+
+    td {
+        font-weight: 700;
+    }
+
+    .message {
+        padding: 7px 15px;
+        color: #ff0000;
+    }
+    </style>
 </head>
+
 <body>
-  <div class="container">
+<div class="container">
     <div class="col-md-offset-2 col-md-4 col-xs-12">
-      <div class="form-group">
-        <label class="control-label col-md-5 col-xs-6 col-sm-2">a (units)</label>
-        <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" value="45" class="form-control js-input-a"></div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-5 col-xs-6 col-sm-2">b (units)</label>
-        <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" value ="35" class="form-control js-input-b"></div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-5 col-xs-6 col-sm-2">c (units)</label>
-        <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" class="form-control js-input-c"></div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-5 col-xs-6 col-sm-2">&alpha; (degrees)</label>
-        <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" value ="45" class="form-control js-input-angle-a"></div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-5 col-xs-6 col-sm-2">&beta; (degrees)</label>
-        <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" class="form-control js-input-angle-b"></div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-5 col-xs-6 col-sm-2">&gamma; (degrees)</label>
-        <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" class="form-control js-input-angle-c"></div>
-      </div>
-      <div class="form-group">
-        <div class="col-md-offset-5 col-md-7 col-xs-12"><button type="submit" class="btn btn-block">Calculate</button></div>
-      </div>
-      <div class="form-group">
-        <div class="message col-md-12"></div>
-      </div>
+        <div class="form-group">
+            <label class="control-label col-md-5 col-xs-6 col-sm-2">a (units)</label>
+            <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" value="45" class="form-control js-input-a"></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-5 col-xs-6 col-sm-2">b (units)</label>
+            <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" value="35" class="form-control js-input-b"></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-5 col-xs-6 col-sm-2">c (units)</label>
+            <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" class="form-control js-input-c"></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-5 col-xs-6 col-sm-2">&alpha; (degrees)</label>
+            <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" value="45" class="form-control js-input-angle-a"></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-5 col-xs-6 col-sm-2">&beta; (degrees)</label>
+            <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" class="form-control js-input-angle-b"></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-5 col-xs-6 col-sm-2">&gamma; (degrees)</label>
+            <div class="col-md-7 col-xs-6 col-sm-10"><input type="number" class="form-control js-input-angle-c"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-7 col-xs-12"><button type="submit" class="btn btn-block">Calculate</button></div>
+        </div>
+        <div class="form-group">
+            <div class="message col-md-12"></div>
+        </div>
     </div>
     <div class="col-md-4 col-xs-12">
-      <table class="table">
-        <thead><tr><td class="table-heading">Type</td><td class="results tri-type"></td></tr></thead>
-        <tbody><tr><td class="table-heading">Circumference</td><td class="results tri-circ"></td></tr ></tbody>
-        <tbody><tr><td class="table-heading">Area</td><td class="results tri-area"></td></tr></tbody>
-        <tbody><tr><td class="table-heading">a</td><td class="results tri-a"></td></tr></tbody>
-        <tbody><tr><td class="table-heading">b</td><td class="results tri-b"></td></tr></tbody>
-        <tbody><tr><td class="table-heading">c</td><td class="results tri-c"></td></tr></tbody>
-        <tbody><tr><td class="table-heading">&alpha;</td><td class="results tri-angle-a"></td></tr></tbody>
-        <tbody><tr><td class="table-heading">&beta;</td><td class="results tri-angle-b"></td></tr></tbody>
-        <tbody><tr><td class="table-heading">&gamma;</td><td class="results tri-angle-c"></td></tr></tbody>
-      </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td class="table-heading">Type</td>
+                    <td class="results tri-type"></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-heading">Circumference</td>
+                    <td class="results tri-circ"></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="table-heading">Area</td>
+                    <td class="results tri-area"></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="table-heading">a</td>
+                    <td class="results tri-a"></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="table-heading">b</td>
+                    <td class="results tri-b"></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="table-heading">c</td>
+                    <td class="results tri-c"></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="table-heading">&alpha;</td>
+                    <td class="results tri-angle-a"></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="table-heading">&beta;</td>
+                    <td class="results tri-angle-b"></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="table-heading">&gamma;</td>
+                    <td class="results tri-angle-c"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
+/*
+ * This does not solve ambiguous cases - but this does
+ * http://www.mathwarehouse.com/triangle-calculator/online.php
+ */
 
-    /*
-    * Triangle solver that shows ambiguous cases (two solutions)
-    * http://www.mathwarehouse.com/triangle-calculator/online.php
-    */
+$(function() {
+    function lawOfCosinesSideA(b, c, angleA) {
+        return Math.sqrt(b * b + c * c - 2 * b * c * Math.cos(angleA));
+    }
 
-    $(function() {
+    function lawOfCosinesSideB(a, c, angleB) {
+        return Math.sqrt(a * a + c * c - 2 * a * c * Math.cos(angleB));
+    }
 
-      $('.btn').on('click', checkInput);
+    function lawOfCosinesSideC(a, b, angleC) {
+        return Math.sqrt(a * a + b * b - 2 * a * b * Math.cos(angleC));
+    }
 
-      function checkInput() {
-        $(".results, .message").empty();
+    function lawOfSinesSideAGivenB(b, angleA, angleB) {
+        return b * Math.sin(angleA) / Math.sin(angleB);
+    }
+
+    function lawOfSinesSideAGivenC(c, angleA, angleC) {
+        return c * Math.sin(angleA) / Math.sin(angleC);
+    }
+
+    function lawOfSinesSideBGivenA(a, angleB, angleA) {
+        return a * Math.sin(angleB) / Math.sin(angleA);
+    }
+
+    function lawOfSinesSideBGivenC(c, angleB, angleC) {
+        return c * Math.sin(angleB) / Math.sin(angleC);
+    }
+
+    function lawOfSinesSideCGivenA(a, angleC, angleA) {
+        return a * Math.sin(angleC) / Math.sin(angleA);
+    }
+
+    function lawOfSinesSideCGivenB(b, angleC, angleB) {
+        return b * Math.sin(angleC) / Math.sin(angleB);
+    }
+
+    function lawOfSinesAngleAGivenB(a, angleB, b) {
+        return Math.asin(a * Math.sin(angleB) / b);
+    }
+
+    function lawOfSinesAngleAGivenC(a, angleC, c) {
+        return Math.asin(a * Math.sin(angleC) / c);
+    }
+
+    function lawOfSinesAngleBGivenA(b, angleA, a) {
+        return Math.asin(b * Math.sin(angleA) / a);
+    }
+
+    function lawOfSinesAngleBGivenC(b, angleC, c) {
+        return Math.asin(b * Math.sin(angleC) / c);
+    }
+
+    function lawOfSinesAngleCGivenA(c, angleA, a) {
+        return Math.asin(c * Math.sin(angleA) / a);
+    }
+
+    function lawOfSinesAngleCGivenB(c, angleB, b) {
+        return Math.asin(c * Math.sin(angleB) / b);
+    }
+
+    function findLastAngle(angleA, angleB) {
+        return 180 - angleA - angleB;
+    }
+
+    var getDegrees = function(radians) {
+        return radians * (180 / Math.PI);
+    };
+
+    var getRadians = function(degrees) {
+        return degrees * (Math.PI / 180);
+    };
+
+    var round = function(num) {
+        return Math.round(num * 1000) / 1000;
+    };
+
+
+    function checkInput() {
+        $('.results, .message').empty();
+
         var a = parseInt($('.js-input-a').val());
         var b = parseInt($('.js-input-b').val());
         var c = parseInt($('.js-input-c').val());
-        var RadA = Math.radians(parseInt($('.js-input-angle-a').val()));
-        var RadB = Math.radians(parseInt($('.js-input-angle-b').val()));
-        var RadC = Math.radians(parseInt($('.js-input-angle-c').val()));
-        var filled = !isNaN(a) + !isNaN(b) + !isNaN(c) + !isNaN(RadA) + !isNaN(RadB) + !isNaN(RadC);
-        console.log('Input values -> ', a, b, c, RadA, RadB, RadC,'Filled inputs -> ', filled);
-        if (filled == 3) {
-          checkMissingSides(a, b, c, RadA, RadB, RadC);
-        }
-        else if (filled > 3 || filled < 3) {
-          $(".message").append('Give exactly 3 pieces of information');
-        }
-      }
+        var aRad = getRadians(parseInt($('.js-input-angle-a').val()));
+        var bRad = getRadians(parseInt($('.js-input-angle-b').val()));
+        var cRad = getRadians(parseInt($('.js-input-angle-c').val()));
+        var filled = !isNaN(a) + !isNaN(b) + !isNaN(c) + !isNaN(aRad) + !isNaN(bRad) + !isNaN(cRad);
 
-      function checkMissingSides(a, b, c, RadA, RadB, RadC) {
+        if (filled === 3) {
+            getMissingSides(a, b, c, aRad, bRad, cRad);
+        } else if (filled > 3 || filled < 3) {
+            $('.message').append('Give exactly 3 pieces of information');
+        }
+    }
+
+    function getMissingSides(a, b, c, aRad, bRad, cRad) {
+        var aDeg,
+            bDeg,
+            cDeg;
 
         // 1 side given
-        if ( !isNaN(a) && isNaN(b) && isNaN(c)) { // a
-          console.log('1 side given (a)');
-          if (!isNaN(RadA) && !isNaN(RadB) && isNaN(RadC)) { // A B
-            DegA = Math.degrees(RadA);
-            DegB = Math.degrees(RadB);
-            DegC = findLastAngle(DegA, DegB);
-            RadC = Math.radians(DegC);
-            b = lawOfSinesSideBGivenA(a, RadB, RadA);
-            c = lawOfSinesSideCGivenA(a, RadC, RadA);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (isNaN(RadA) && !isNaN(RadB) && !isNaN(RadC)) { // B C
-            DegB = Math.degrees(RadB);
-            DegC = Math.degrees(RadC);
-            DegA = findLastAngle(DegB, DegC);
-            RadA = Math.radians(DegA);
-            b = lawOfSinesSideBGivenA(a, RadB, RadA);
-            c = lawOfSinesSideCGivenA(a, RadC, RadA);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (!isNaN(RadA) && isNaN(RadB) && !isNaN(RadC)) { // A C
-            DegA = Math.degrees(RadA);
-            DegC = Math.degrees(RadC);
-            DegB = findLastAngle(DegA, DegC);
-            RadB = Math.radians(DegB);
-            b = lawOfSinesSideBGivenA(a, RadB, RadA);
-            c = lawOfSinesSideCGivenA(a, RadC, RadA);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-        }
+        if (!isNaN(a) && isNaN(b) && isNaN(c)) {                                       // a
+            console.log('1 side given (a)');
 
-        else if (isNaN(a) && !isNaN(b) && isNaN(c)) { // b
-          console.log('1 side given (b)');
-          if (!isNaN(RadA) && !isNaN(RadB) && isNaN(RadC)) { // A B
-            DegA = Math.degrees(RadA);
-            DegB = Math.degrees(RadB);
-            DegC = findLastAngle(DegA, DegB);
-            RadC = Math.radians(DegC);
-            a = lawOfSinesSideAGivenB(b, RadA, RadB);
-            c = lawOfSinesSideCGivenB(b, RadC, RadB);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (isNaN(RadA) && !isNaN(RadB) && !isNaN(RadC) ) { // B C
-            DegB = Math.degrees(RadB);
-            DegC = Math.degrees(RadC);
-            DegA = findLastAngle(DegB, DegC);
-            RadA =Math.radians(DegA);
-            a = lawOfSinesSideAGivenB(b, RadA, RadB);
-            c = lawOfSinesSideCGivenB(b, RadC, RadB);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (!isNaN(RadA) && isNaN(RadB) && !isNaN(RadC)) { // A C
-            DegA = Math.degrees(RadA);
-            DegC = Math.degrees(RadC);
-            DegB = findLastAngle(DegA, DegC);
-            RadB = Math.radians(DegB);
-            a = lawOfSinesSideAGivenB(b, RadA, RadB);
-            c = lawOfSinesSideCGivenB(b, RadC, RadB);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-        }
+            if (!isNaN(aRad) && !isNaN(bRad) && isNaN(cRad)) {                         // A B
+                aDeg = getDegrees(aRad);
+                bDeg = getDegrees(bRad);
+                cDeg = findLastAngle(aDeg, bDeg);
+                cRad = getRadians(cDeg);
+                b = lawOfSinesSideBGivenA(a, bRad, aRad);
+                c = lawOfSinesSideCGivenA(a, cRad, aRad);
 
-        else if (isNaN(a) && isNaN(b) && !isNaN(c) ) { // c
-          console.log('one side given (c)');
-          if (!isNaN(RadA) && !isNaN(RadB) && isNaN(RadC)) { // A B
-            DegA = Math.degrees(RadA);
-            DegB = Math.degrees(RadB);
-            DegC = findLastAngle(DegA, DegB);
-            RadC = Math.radians(DegC);
-            a = lawOfSinesSideAGivenC(c, RadA, RadC);
-            b = lawOfSinesSideBGivenC(c, RadB, RadC);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (isNaN(RadA) && !isNaN(RadB) && !isNaN(RadC)) { // B C
-            DegB = Math.degrees(RadB);
-            DegC = Math.degrees(RadC);
-            DegA = findLastAngle(DegB, DegC);
-            RadA = Math.radians(DegA);
-            a = lawOfSinesSideAGivenC(c, RadA, RadC);
-            b = lawOfSinesSideBGivenC(c, RadB, RadC);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (!isNaN(RadA) && isNaN(RadB) && !isNaN(RadC)) { // A C
-            DegA = Math.degrees(RadA);
-            DegC = Math.degrees(RadC);
-            DegB = findLastAngle(DegA, DegC);
-            RadB = Math.radians(DegB);
-            a = lawOfSinesSideAGivenC(c, RadA, RadC);
-            b = lawOfSinesSideBGivenC(c, RadB, RadC);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-        }
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (isNaN(aRad) && !isNaN(bRad) && !isNaN(cRad)) {                    // B C
+                bDeg = getDegrees(bRad);
+                cDeg = getDegrees(cRad);
+                aDeg = findLastAngle(bDeg, cDeg);
+                aRad = getRadians(aDeg);
+                b = lawOfSinesSideBGivenA(a, bRad, aRad);
+                c = lawOfSinesSideCGivenA(a, cRad, aRad);
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
 
+            }
+            else if (!isNaN(aRad) && isNaN(bRad) && !isNaN(cRad)) {                    // A C
+                aDeg = getDegrees(aRad);
+                cDeg = getDegrees(cRad);
+                bDeg = findLastAngle(aDeg, cDeg);
+                bRad = getRadians(bDeg);
+                b = lawOfSinesSideBGivenA(a, bRad, aRad);
+                c = lawOfSinesSideCGivenA(a, cRad, aRad);
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+        }
+        else if (isNaN(a) && !isNaN(b) && isNaN(c)) {                                  // b
+            console.log('1 side given (b)');
+
+            if (!isNaN(aRad) && !isNaN(bRad) && isNaN(cRad)) {                         // A B
+                aDeg = getDegrees(aRad);
+                bDeg = getDegrees(bRad);
+                cDeg = findLastAngle(aDeg, bDeg);
+                cRad = getRadians(cDeg);
+                a = lawOfSinesSideAGivenB(b, aRad, bRad);
+                c = lawOfSinesSideCGivenB(b, cRad, bRad);
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (isNaN(aRad) && !isNaN(bRad) && !isNaN(cRad)) {                    // B C
+                bDeg = getDegrees(bRad);
+                cDeg = getDegrees(cRad);
+                aDeg = findLastAngle(bDeg, cDeg);
+                aRad = getRadians(aDeg);
+                a = lawOfSinesSideAGivenB(b, aRad, bRad);
+                c = lawOfSinesSideCGivenB(b, cRad, bRad);
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (!isNaN(aRad) && isNaN(bRad) && !isNaN(cRad)) {                    // A C
+                aDeg = getDegrees(aRad);
+                cDeg = getDegrees(cRad);
+                bDeg = findLastAngle(aDeg, cDeg);
+                bRad = getRadians(bDeg);
+                a = lawOfSinesSideAGivenB(b, aRad, bRad);
+                c = lawOfSinesSideCGivenB(b, cRad, bRad);
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+        } else if (isNaN(a) && isNaN(b) && !isNaN(c)) {                                // c
+            console.log('one side given (c)');
+
+            if (!isNaN(aRad) && !isNaN(bRad) && isNaN(cRad)) {                         // A B
+                aDeg = getDegrees(aRad);
+                bDeg = getDegrees(bRad);
+                cDeg = findLastAngle(aDeg, bDeg);
+                cRad = getRadians(cDeg);
+                a = lawOfSinesSideAGivenC(c, aRad, cRad);
+                b = lawOfSinesSideBGivenC(c, bRad, cRad);
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (isNaN(aRad) && !isNaN(bRad) && !isNaN(cRad)) {                    // B C
+                bDeg = getDegrees(bRad);
+                cDeg = getDegrees(cRad);
+                aDeg = findLastAngle(bDeg, cDeg);
+                aRad = getRadians(aDeg);
+                a = lawOfSinesSideAGivenC(c, aRad, cRad);
+                b = lawOfSinesSideBGivenC(c, bRad, cRad);
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (!isNaN(aRad) && isNaN(bRad) && !isNaN(cRad)) {                    // A C
+                aDeg = getDegrees(aRad);
+                cDeg = getDegrees(cRad);
+                bDeg = findLastAngle(aDeg, cDeg);
+                bRad = getRadians(bDeg);
+                a = lawOfSinesSideAGivenC(c, aRad, cRad);
+                b = lawOfSinesSideBGivenC(c, bRad, cRad);
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+        }
         // 2 sides given
-        else if (!isNaN(a) && !isNaN(b) && isNaN(c)) { // a b
-          console.log('two sides given ab');
-          if (!isNaN(RadA) && isNaN(RadB) && isNaN(RadC)) { // A
-            RadB = lawOfSinesAngleBGivenA(b, RadA, a);
-            DegA = Math.degrees(RadA);
-            DegB = Math.degrees(RadB);
-            DegC = findLastAngle(DegA, DegB);
-            RadC = Math.radians(DegC);
-            c = lawOfSinesSideCGivenA(a, RadC, RadA);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (isNaN(RadA) && !isNaN(RadB) && isNaN(RadC)) { // B
-            RadA = lawOfSinesAngleAGivenB(a, RadB, b);
-            DegA = Math.degrees(RadA);
-            DegB = Math.degrees(RadB);
-            DegC = findLastAngle(DegA, DegB);
-            RadC = Math.radians(DegC);
-            c = lawOfSinesSideCGivenA(a, RadC, RadA);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (isNaN(RadA) && isNaN(RadB) && !isNaN(RadC)) { // C
-            DegC = Math.degrees(RadC);
-            c = lawOfCosinesSideC(a, b, RadC);
-            DegA = Math.degrees(Math.acos(( b * b + c * c - a * a) / (2 * b * c )));
-            DegB = 180 - DegC - DegA;
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-        }
+        else if (!isNaN(a) && !isNaN(b) && isNaN(c)) {                                 // a b
+            console.log('two sides given ab');
 
-        else if (!isNaN(a) && isNaN(b) && !isNaN(c)) { // a c
-          console.log('two sides given ac');
-          if (!isNaN(RadA) && isNaN(RadB) && isNaN(RadC)) { // A
-            RadC = lawOfSinesAngleCGivenA(c, RadA, a);
-            DegA = Math.degrees(RadA);
-            DegC = Math.degrees(RadC);
-            DegB = findLastAngle(DegA, DegC);
-            RadB = Math.radians(DegB);
-            b = lawOfSinesSideBGivenA(a, RadB, RadA);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (isNaN(RadA) && !isNaN(RadB) && isNaN(RadC)) { // B
-            DegB = Math.degrees(RadB);
-            b = lawOfCosinesSideC(a, c, RadB);
-            DegA = Math.degrees(Math.acos(( b * b + c * c - a * a) / (2 * b * c )));
-            DegC = 180 - DegA - DegB;
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (isNaN(RadA) && isNaN(RadB) && !isNaN(RadC)) { // C
-            RadA = lawOfSinesAngleAGivenC(a, RadC, c);
-            DegA = Math.degrees(RadA);
-            DegC = Math.degrees(RadC);
-            DegB = findLastAngle(DegA, DegC);
-            RadB = Math.radians(DegB);
-            b = lawOfSinesSideBGivenA(a, RadB, RadA);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-        }
+            if (!isNaN(aRad) && isNaN(bRad) && isNaN(cRad)) {                          // A
+                bRad = lawOfSinesAngleBGivenA(b, aRad, a);
+                aDeg = getDegrees(aRad);
+                bDeg = getDegrees(bRad);
+                cDeg = findLastAngle(aDeg, bDeg);
+                cRad = getRadians(cDeg);
+                c = lawOfSinesSideCGivenA(a, cRad, aRad);
 
-        else if (isNaN(a) && !isNaN(b) && !isNaN(c)) { // b c
-          console.log('two sides given bc');
-          if (!isNaN(RadA) && isNaN(RadB) && isNaN(RadC)) { // A
-            a = lawOfCosinesSideC(b, c, RadA);
-            DegA = Math.degrees(RadA);
-            DegB = Math.degrees(Math.acos(( a * a + c * c - b * b) / (2 * a * c )));
-            DegC = 180 - DegA - DegB;
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (isNaN(RadA) && !isNaN(RadB) && isNaN(RadC)){ // B
-            RadC = lawOfSinesAngleCGivenB(c, RadB, b);
-            DegB = Math.degrees(RadB);
-            DegC = Math.degrees(RadC);
-            DegA = findLastAngle(DegB, DegC);
-            RadA = Math.radians(DegA);
-            a = lawOfSinesSideAGivenB(b, RadA, RadB);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-          else if (isNaN(RadA) && isNaN(RadB) && !isNaN(RadC)) { // C
-            RadB = lawOfSinesAngleBGivenC(b, RadC, c);
-            DegB = Math.degrees(RadB);
-            DegC = Math.degrees(RadC);
-            DegA = findLastAngle(DegB, DegC);
-            RadA = Math.radians(DegA);
-            a = lawOfSinesSideAGivenB(b, RadA, RadB);
-            isTriangle(a, b, c, DegA, DegB, DegC);
-          }
-        }
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (isNaN(aRad) && !isNaN(bRad) && isNaN(cRad)) {                     // B
+                aRad = lawOfSinesAngleAGivenB(a, bRad, b);
+                aDeg = getDegrees(aRad);
+                bDeg = getDegrees(bRad);
+                cDeg = findLastAngle(aDeg, bDeg);
+                cRad = getRadians(cDeg);
+                c = lawOfSinesSideCGivenA(a, cRad, aRad);
 
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (isNaN(aRad) && isNaN(bRad) && !isNaN(cRad)) {                     // C
+                cDeg = getDegrees(cRad);
+                c = lawOfCosinesSideC(a, b, cRad);
+                aDeg = getDegrees(Math.acos((b * b + c * c - a * a) / (2 * b * c)));
+                bDeg = 180 - cDeg - aDeg;
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+        }
+        else if (!isNaN(a) && isNaN(b) && !isNaN(c)) {                                 // a c
+            console.log('two sides given ac');
+
+            if (!isNaN(aRad) && isNaN(bRad) && isNaN(cRad)) {                          // A
+                cRad = lawOfSinesAngleCGivenA(c, aRad, a);
+                aDeg = getDegrees(aRad);
+                cDeg = getDegrees(cRad);
+                bDeg = findLastAngle(aDeg, cDeg);
+                bRad = getRadians(bDeg);
+                b = lawOfSinesSideBGivenA(a, bRad, aRad);
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (isNaN(aRad) && !isNaN(bRad) && isNaN(cRad)) {                     // B
+                bDeg = getDegrees(bRad);
+                b = lawOfCosinesSideC(a, c, bRad);
+                aDeg = getDegrees(Math.acos((b * b + c * c - a * a) / (2 * b * c)));
+                cDeg = 180 - aDeg - bDeg;
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (isNaN(aRad) && isNaN(bRad) && !isNaN(cRad)) {                     // C
+                aRad = lawOfSinesAngleAGivenC(a, cRad, c);
+                aDeg = getDegrees(aRad);
+                cDeg = getDegrees(cRad);
+                bDeg = findLastAngle(aDeg, cDeg);
+                bRad = getRadians(bDeg);
+                b = lawOfSinesSideBGivenA(a, bRad, aRad);
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+        }
+        else if (isNaN(a) && !isNaN(b) && !isNaN(c)) {                                 // b c
+            console.log('two sides given bc');
+
+            if (!isNaN(aRad) && isNaN(bRad) && isNaN(cRad)) {                          // A
+                a = lawOfCosinesSideC(b, c, aRad);
+                aDeg = getDegrees(aRad);
+                bDeg = getDegrees(Math.acos((a * a + c * c - b * b) / (2 * a * c)));
+                cDeg = 180 - aDeg - bDeg;
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (isNaN(aRad) && !isNaN(bRad) && isNaN(cRad)) {                     // B
+                cRad = lawOfSinesAngleCGivenB(c, bRad, b);
+                bDeg = getDegrees(bRad);
+                cDeg = getDegrees(cRad);
+                aDeg = findLastAngle(bDeg, cDeg);
+                aRad = getRadians(aDeg);
+                a = lawOfSinesSideAGivenB(b, aRad, bRad);
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+            else if (isNaN(aRad) && isNaN(bRad) && !isNaN(cRad)) {                     // C
+                bRad = lawOfSinesAngleBGivenC(b, cRad, c);
+                bDeg = getDegrees(bRad);
+                cDeg = getDegrees(cRad);
+                aDeg = findLastAngle(bDeg, cDeg);
+                aRad = getRadians(aDeg);
+                a = lawOfSinesSideAGivenB(b, aRad, bRad);
+
+                solveTriangle(a, b, c, aDeg, bDeg, cDeg);
+            }
+        }
         // all sides given
         else if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
-          console.log('all sides given');
-          DegA = Math.degrees(Math.acos(( b * b + c * c - a * a) / (2 * b * c )));
-          DegB = Math.degrees(Math.acos(( a * a + c * c - b * b) / (2 * a * c )));
-          DegC = 180 - DegA - DegB;
-          isTriangle(a, b, c, DegA, DegB, DegC);
-        }
+            aDeg = getDegrees(Math.acos((b * b + c * c - a * a) / (2 * b * c)));
+            bDeg = getDegrees(Math.acos((a * a + c * c - b * b) / (2 * a * c)));
+            cDeg = 180 - aDeg - bDeg;
 
-        else {
-          $(".message").append('Give at least one side length');
-        }
-      }
-
-      function isTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC) {
-        console.log('isTriangle data ->',SideA, SideB, SideC, AngleA, AngleB, AngleC);
-        if (SideA + SideB > SideC && SideA + SideC > SideB && SideB + SideC > SideA) {
-          if (AngleA > 0 && AngleB > 0 && AngleC > 0 && AngleA + AngleB + AngleC === 180) {
-            console.log('isTriangle = true');
-            solveTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC);
-          } else {
-            console.log('Angle error: isTriangle = false');
-            $(".message").append('Unable to create triangle with given sides/angles' );
-          }
+            solveTriangle(a, b, c, aDeg, bDeg, cDeg);
         } else {
-          console.log('Side Error: isTriangle = false');
-          $(".message").append('Unable to create triangle with given sides/angles' );
+            $('.message').append('Give at least one side length');
         }
-      }
+    }
 
-      function solveTriangle(a, b, c, AngleA, AngleB, AngleC) {
-          var sp = (a + b + c) / 2;
-          var area = round(Math.sqrt(sp * ( (sp - a) * ( sp - b) * (sp - c) )));
-          var circ = round(a + b + c);
-          console.log("solveTriangle results ->", a, b, c, AngleA, AngleB, AngleC, " area, circ ->", area, circ);
-          getTriangleType(a, b, c, AngleA, AngleB, AngleC);
-          displayResults(type, circ, area, a, b, c, AngleA, AngleB, AngleC);
-      }
+    function solveTriangle(sideA, sideB, sideC, angleA, angleB, angleC) {
+        if (sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA) {
+            if (angleA > 0 && angleB > 0 && angleC > 0 && angleA + angleB + angleC === 180) {
+                calculateTriangle(sideA, sideB, sideC, angleA, angleB, angleC);
+            } else {
+                $('.message').append('Unable to create triangle with given sides/angles');
+            }
+        } else {
+            $('.message').append('Unable to create triangle with given sides/angles');
+        }
+    }
 
-      function getTriangleType(SideA, SideB, SideC, AngleA, AngleB, AngleC) {
-        if ((SideA === SideB && SideB === SideC) || AngleA === AngleB === AngleC) {
-          type ='Equilateral (võrdkülgne)';
+    function getTriangleType(sideA, sideB, sideC, angleA, angleB, angleC) {
+        var type;
+
+        if ((sideA === sideB && sideB === sideC) || angleA === angleB === angleC) {
+            type = 'Equilateral (võrdkülgne)';
         }
-        else if (SideA === SideB || SideA === SideC || SideB === SideC || AngleA === AngleB || AngleA === AngleC || AngleB === AngleC) {
-          type ='Isosceles (võrdhaarne)';
+        else if (sideA === sideB || sideA === sideC || sideB === sideC || angleA === angleB || angleA === angleC || angleB === angleC) {
+            type = 'Isosceles (võrdhaarne)';
         }
-        else if (SideA * SideA + SideB * SideB === SideC * SideC || AngleA === 90 || AngleB === 90 || AngleC === 90) {
-          type ='Right (täisnurkne)';
+        else if (sideA * sideA + sideB * sideB === sideC * sideC || angleA === 90 || angleB === 90 || angleC === 90) {
+            type = 'Right (täisnurkne)';
         }
-        else if (SideC * SideC < SideA * SideA + SideB * SideB) {
-          type ='Acute (Teravnurk)';
+        else if (sideC * sideC < sideA * sideA + sideB * sideB) {
+            type = 'Acute (Teravnurk)';
         }
-        else if (SideC * SideC > SideA * SideA + SideB * SideB) {
-          type ='Obtuse (Nürinurk)';
+        else if (sideC * sideC > sideA * sideA + sideB * sideB) {
+            type = 'Obtuse (Nürinurk)';
         }
         else {
-          type ='Unknown'; // this should never show
+            type = 'Unknown'; // this should never show
         }
-      }
 
-      function displayResults(type, circ, area, a, b, c, AngleA, AngleB, AngleC) {
-        $(".tri-type").append(type);
-        $(".tri-circ").append(circ + ' units');
-        $(".tri-area").append('<td>' + area + ' units&sup2;</td>');
-        $(".tri-a").append('<td>' + round(a) + '</td>');
-        $(".tri-b").append('<td>' + round(b) + '</td>');
-        $(".tri-c").append('<td>' + round(c) + '</td>');
-        $(".tri-angle-a").append('<td>' + round(AngleA) + '&ordm</td>');
-        $(".tri-angle-b").append('<td>' + round(AngleB) + '&ordm</td>');
-        $(".tri-angle-c").append('<td>' + round(AngleC) + '&ordm</td>');
-      }
+        return type;
+    }
 
-      function lawOfCosinesSideA(b, c, AngleA) {
-        return Math.sqrt(b * b + c * c - 2 * b * c * Math.cos(AngleA));
-      }
+    function calculateTriangle(a, b, c, angleA, angleB, angleC) {
+        var sp = (a + b + c) / 2;
+        var area = round(Math.sqrt(sp * ((sp - a) * (sp - b) * (sp - c))));
+        var circ = round(a + b + c);
+        var type = getTriangleType(a, b, c, angleA, angleB, angleC);
 
-      function lawOfCosinesSideB(a, c, AngleB) {
-        return Math.sqrt(a * a + c * c - 2 * a * c * Math.cos(AngleB));
-      }
+        displayResults(type, circ, area, a, b, c, angleA, angleB, angleC);
+    }
 
-      function lawOfCosinesSideC(a, b, AngleC) {
-        return Math.sqrt(a * a + b * b - 2 * a * b * Math.cos(AngleC));
-      }
+    function displayResults(type, circ, area, a, b, c, angleA, angleB, angleC) {
+        $('.tri-type').append(type);
+        $('.tri-circ').append(circ + ' units');
+        $('.tri-area').append('<td>' + area + ' units&sup2;</td>');
+        $('.tri-a').append('<td>' + round(a) + '</td>');
+        $('.tri-b').append('<td>' + round(b) + '</td>');
+        $('.tri-c').append('<td>' + round(c) + '</td>');
+        $('.tri-angle-a').append('<td>' + round(angleA) + '&ordm</td>');
+        $('.tri-angle-b').append('<td>' + round(angleB) + '&ordm</td>');
+        $('.tri-angle-c').append('<td>' + round(angleC) + '&ordm</td>');
+    }
 
-      function lawOfSinesSideAGivenB(b, AngleA, AngleB) {
-        return b * Math.sin(AngleA) / Math.sin(AngleB);
-      }
-
-      function lawOfSinesSideAGivenC(c, AngleA, AngleC) {
-        return c * Math.sin(AngleA) / Math.sin(AngleC);
-      }
-
-      function lawOfSinesSideBGivenA(a, AngleB, AngleA) {
-        return a * Math.sin(AngleB) / Math.sin(AngleA);
-      }
-
-      function lawOfSinesSideBGivenC(c, AngleB, AngleC) {
-        return c * Math.sin(AngleB) / Math.sin(AngleC);
-      }
-
-      function lawOfSinesSideCGivenA(a, AngleC, AngleA) {
-        return a * Math.sin(AngleC) / Math.sin(AngleA);
-      }
-
-      function lawOfSinesSideCGivenB(b, AngleC, AngleB) {
-        return b * Math.sin(AngleC) / Math.sin(AngleB);
-      }
-
-      function lawOfSinesAngleAGivenB(a, AngleB, b) {
-        return Math.asin(a * Math.sin(AngleB) / b);
-      }
-
-      function lawOfSinesAngleAGivenC(a, AngleC, c) {
-        return Math.asin(a * Math.sin(AngleC) / c);
-      }
-
-      function lawOfSinesAngleBGivenA(b, AngleA, a) {
-        return Math.asin(b * Math.sin(AngleA) / a);
-      }
-
-      function lawOfSinesAngleBGivenC(b, AngleC, c) {
-        return Math.asin(b * Math.sin(AngleC) / c);
-      }
-
-      function lawOfSinesAngleCGivenA(c, AngleA, a) {
-        return Math.asin(c * Math.sin(AngleA) / a);
-      }
-
-      function lawOfSinesAngleCGivenB(c, AngleB, b) {
-        return Math.asin(c * Math.sin(AngleB) / b);
-      }
-
-      function findLastAngle(AngleA, AngleB) {
-        return 180 - AngleA - AngleB;
-      }
-
-      Math.degrees = function(radians) {
-        return radians * (180 / Math.PI);
-      };
-
-      Math.radians = function(degrees) {
-        return degrees * (Math.PI / 180);
-      };
-
-      round = function(num) {
-        return Math.round(num * 1000) / 1000;
-      };
-
-    });
-  </script>
+    $('.btn').on('click', checkInput);
+});
+</script>
 </body>
+
 </html>
